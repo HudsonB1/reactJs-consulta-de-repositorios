@@ -1,27 +1,14 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
+function App(props) {
+  const [ usuario, setUsuario] = useState('Hudson');
   return (
-    <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <div className="">
-            olá
-            </div>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className='teamo'>TE AMO GATA</h1>
+        <input type="text" className="pesquisa" placeholder="Usuário"/>
+        <button className="button" type="buttun">Pesquisar</button>
       </header>
-    </div>
   );
 }
 
