@@ -10,23 +10,24 @@ export default function Home(props) {
   function handlePesquisa() {
     axios.get(`https://api.github.com/users/${usuario}/repos`).then(response => {
       const repositories = response.data;
-      // const repositoriesName = [];
-      // const repositoriesUrl = [];
+      const repositoriesName = [];
+      const repositoriesUrl = [];
       const repositoriesTest = {
         name: '',
         html_url: ''
       };
 
       repositories.map((repository) => {
-        // repositoriesName.push(repository.name);
-        // repositoriesUrl.push(repository.html_url);
+        repositoriesName.push(repository.name);
+        repositoriesUrl.push(repository.html_url);
         repositoriesTest.name = (repository.name);
-        repositoriesTest.html_url = repository.html_url);
+        repositoriesTest.html_url = (repository.html_url);
       });
-      // localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
-      // localStorage.setItem('repositoriesUrl', JSON.stringify(repositoriesUrl));
+
+      localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+      localStorage.setItem('repositoriesUrl', JSON.stringify(repositoriesUrl));
       localStorage.setItem('repositoriesTest', JSON.stringify(repositoriesTest));
-      // history.push('/repositories');
+      history.push('/repositories');
     });
   }
 
@@ -41,4 +42,3 @@ export default function Home(props) {
     </>
   );
 }
-
