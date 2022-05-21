@@ -1,17 +1,14 @@
-import React, { useState, useEffect, Children } from "react";
+import React, { useState, useEffect } from "react";
 import './repositories.css';
+import { Link } from 'react-router-dom';
 
 export default function Repositories() {
-    const [repositoriesName, setRepositoriesName] = useState([]);
-    const [repositoriesUrl, setRepositoriesUrl] = useState([]);
     const [repositories, setRepositories] = useState([[]]);
 
 
     useEffect(() => {
         let repName = JSON.parse(localStorage.getItem('repositoriesName'));
         let repUrl = JSON.parse(localStorage.getItem('repositoriesUrl'));
-        setRepositoriesName(repName);
-        setRepositoriesUrl(repUrl);
 
         let rep = {
             name: repName,
@@ -28,8 +25,8 @@ export default function Repositories() {
                 })
             )
         })
-        console.log(arrRep[2])
         setRepositories(arrRep);
+        //localStorage.clear();
     }, []);
 
     return (
@@ -38,13 +35,14 @@ export default function Repositories() {
             <ul>
                 {repositories.map(repository => {
                     return (
-                        <div>
+                        <div className="repositories">
                             <li><strong>Repositório:</strong> <a href={repository.url} target='_blank'>{repository[repositories.indexOf(repository)]}{(repository.name)}</a></li>
                         </div>
                     )
                 })
                 }
             </ul>
+            <Link to='/'><button className="voltar"><strong>Voltar</strong></button></Link>
         </>
     )
 }

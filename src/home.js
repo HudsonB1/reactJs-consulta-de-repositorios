@@ -27,7 +27,7 @@ export default function Home(props) {
   return (
     <>
       <h1 className='header'>Pesquise seus repositórios GitHub</h1>
-      <strong><input onChange={e => setUsuario(e.target.value)} value={usuario} className="pesquisa" placeholder="Usuário" /></strong>
+      <input onChange={e => setUsuario(e.target.value)} value={usuario} className="pesquisa" placeholder="Usuário" />
       <button className="button" type="buttun" onClick={handlePesquisa} ><strong>Pesquisar</strong></button>
     </>
   );

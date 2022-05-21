@@ -11,18 +11,18 @@ ul div:hover {
     background-color: rgb(207, 231, 253);
 }
 
-ul div li{
+ul div li {
     text-align: left;
     margin-left: 10px;
     font-size: 15px;
     transition: 300ms;
 }
 
-ul div li:hover{
+ul div li:hover {
     font-size: 18px;
 }
 
-ul div a{
+ul div a {
     text-decoration: none;
     color: #000;
     font-size: 15px;
@@ -33,4 +33,42 @@ ul div a{
 ul div a:hover {
     color: #ff7bbf;
     font-family: bold, sans-serif;
+}
+
+.voltar {
+    cursor: pointer;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    font-size: 15px;
+    background-color: #ff7582;
+    width: 100px;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 480px) {
+    ul div {
+        width: 80%;
+        margin: 2px 10%;
+    }
+
+    ul div li {
+        font-size: 12px;
+    }
+
+    ul div a {
+        font-size: 12px;
+    }
+
+    ul div:hover {
+        background-color: #fff;
+    }
+
+    ul div li:hover {
+        font-size: 12px;
+    }
+
+    ul div a:hover {
+        color: #ff7bbf;
+    }
 }
