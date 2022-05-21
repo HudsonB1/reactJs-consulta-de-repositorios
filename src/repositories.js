@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Children } from "react";
+import './repositories.css';
 
 export default function Repositories() {
     const [repositoriesName, setRepositoriesName] = useState([]);
@@ -17,25 +18,18 @@ export default function Repositories() {
             url: repUrl
         }
 
-        let arrRep = {
-            name: '',
-            url: ''
-        }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+        let arrRep = []
 
-        // rep.name.map(repository => {
-        //     arrRep = {
-        //         name: repository
-        //     }
-        // })
-
-        // rep.url.map(repository => {
-        //     arrRep = {
-        //         url: repository
-        //     }
-        // })
-
-        console.log(rep);
-        // let repositoriesUrl = setRepositoriesUrl(JSON.parse(localStorage.getItem('repositoriesUrl')));
+        repName.map(repository => {
+            return (
+                arrRep.push({
+                    url: repUrl[(repName.indexOf(repository))],
+                    name: repository.toUpperCase()
+                })
+            )
+        })
+        console.log(arrRep[2])
+        setRepositories(arrRep);
     }, []);
 
     return (
@@ -44,12 +38,9 @@ export default function Repositories() {
             <ul>
                 {repositories.map(repository => {
                     return (
-                        // repositoriesUrl.map(repositoryUrl => {
-                        //     return (
-                        //         <li><a href={repositoryUrl} target='_blank'>{repository}</a></li>
-                        //     )
-                        // })
-                        <li><strong>Repositório:</strong> {repository}</li> // TEMPORARIO
+                        <div>
+                            <li><strong>Repositório:</strong> <a href={repository.url} target='_blank'>{repository[repositories.indexOf(repository)]}{(repository.name)}</a></li>
+                        </div>
                     )
                 })
                 }
