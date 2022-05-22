@@ -35,7 +35,18 @@ h1 {
 }
 
 .button:hover {
-  background-color: #ff7582;
+  background-color: #fc5a6a;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 20px;
+  font-family: sans-serif;
+  background-color: #ffcccc;
+  border: 1px solid #ff0000;
+  border-radius: 2px;
+  width: 380px;
+  margin: 10px auto;
 }
 
 @media only screen and (max-width: 480px) {
@@ -47,4 +58,11 @@ h1 {
   .button {
     width: 30%;
   }
+
+.error {
+  margin-top: 20px;
+  width: 200px;
+  font-size: 17px;
+}
+
 }

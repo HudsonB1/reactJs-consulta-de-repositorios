@@ -1,32 +1,32 @@
 import React, { useState, useEffect } from "react";
 import './repositories.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Repositories() {
     const [repositories, setRepositories] = useState([[]]);
-
+    let history = useHistory();
 
     useEffect(() => {
         let repName = JSON.parse(localStorage.getItem('repositoriesName'));
         let repUrl = JSON.parse(localStorage.getItem('repositoriesUrl'));
 
-        let rep = {
-            name: repName,
-            url: repUrl
+        if (repName != null) {
+            let arrRep = []
+            
+            repName.map(repository => {
+                return (
+                    arrRep.push({
+                        url: repUrl[(repName.indexOf(repository))],
+                        name: repository.toUpperCase()
+                    })
+                )
+            })
+            setRepositories(arrRep);
+            localStorage.clear();
+        } else {
+            history.push('/');
         }
 
-        let arrRep = []
-
-        repName.map(repository => {
-            return (
-                arrRep.push({
-                    url: repUrl[(repName.indexOf(repository))],
-                    name: repository.toUpperCase()
-                })
-            )
-        })
-        setRepositories(arrRep);
-        //localStorage.clear();
     }, []);
 
     return (
